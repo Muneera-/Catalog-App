@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Udacity Full Stack Nanodegree Project - Website Portfolio">
+    <title>Catalog App</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,400,700" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="content">
+          <div id="header_logo">
+            <a href=""><img src="{{ url_for('static', filename='book-shelf.png') }}" alt="logo"></a>
+          </div>
+          <div id="header_title">
+              <h1><a href = "{{url_for('showCatalog')}}" style="color:white">
+        Books Catalog Application</a></h1>
+              <span> 
+                {%if 'username' not in session %}
+      <a class="button" href="{{url_for('showLogin')}}">Login </a>
+      {% else %}
+      <a class="button" href="{{url_for('disconnect')}}">Logout </a>
+      {% endif %}
+              </span>
+            </div>
+        </div>
+      </header>
+      {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class="flash">
+      {% for message in messages %}
+      <h4><strong>{{message}}</strong></h4>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+

@@ -1,0 +1,19 @@
+{% include "header.html" %}
+<section id="container">
+<div class="item">
+  <h3 class="name"> {{items.name}}</h3>
+  <p><a href = "{{url_for('showCategories', categories_id=categories.id)}}"  style="color:black"><span>Category:</span> {{categories.name}}</a></p>
+  <p><span>Description:</span> {{items.description}}</p>
+  </br>
+  <a href = "{{url_for('editItem', categories_id=categories.id, items_id=items.id)}}"> <button type="button"> Edit </button></a>
+  <a href = "{{url_for('deleteItem', categories_id=categories.id, items_id=items.id)}}"><button type="button">Delete</button></a>
+</div>
+</section>
+<footer>
+    <br>
+        <p><span>Developed by Muneera &copy; 2018</span></p>
+</footer>
+</div>
+
+</body>
+</html>

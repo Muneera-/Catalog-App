@@ -1,0 +1,33 @@
+{% include "header.html" %}
+<section id="container">
+
+<h1 class="header">Edit Book Item</h1>
+<form action="{{url_for('editItem' ,categories_id=categories_id, items_id=items_id, item=editedItem)}}"
+  method="POST">
+  <p>Name:</p>
+  <input type="text" size="30" name="name" placeholder = '{{item.name}}'>
+  <p>Description:</p>
+  <input type="text" size="30"  name="description" placeholder = '{{item.description}}'>
+  <p>Books Categories:</p>
+  <select name="categories_id">
+    <option value="" selected="selected"></option>
+    <option value=1 >Biographies & Memoirs</option>
+    <option value=2 >Literature & Fiction</option>
+    <option value=3 >Children's Books</option>
+    <option value=4 >Arts & Photography</option>
+    <option value=5 >Non-Fiction</option>
+  </select>
+  </br></br>
+  <input type="submit" value ="Update">
+  <a href = "{{url_for('showItem',categories_id=categories_id, items_id=items_id)}}"><button type="button">Cancel</button></a>
+  </br></br>
+</form>
+</section>
+<footer>
+  <br>
+        <p><span>Developed by Muneera &copy; 2018</span></p>
+</footer>
+</div>
+
+</body>
+</html>
